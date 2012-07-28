@@ -25,5 +25,5 @@ if AUTH2_API_KEY == "your api key here":
 
 Then sync the db from the project directory (manage.py syncdb) nad run the server and test your site.
 
-<b>Please note that you need two phones around to test the sample. The phone you use for your application can not be used for any other purposes.</b>
+<b>Please note that you need two phones around to test the sample. The phone you use for your application can not be used to call the API. This is becasue the application phone will be sent as caller ID who is receiving. You can not call yourself.</b>
 
