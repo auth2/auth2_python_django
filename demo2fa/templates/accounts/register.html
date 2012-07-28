@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+      <h2> User Registration </h2>     
+      <div>
+        <p>Phone number must be exacly 10 digits total(USA/Canada number only).</p>  
+                  {% if form.errors %}
+                      <p>Something went wrong. Please try again.</p>
+                  {% endif %}
+                  <p>{{ form.non_field_errors }}</p>
+                  <form method="post" action=".">                    
+                    {% csrf_token %}
+                    {{ form.as_p }}                    
+                    <input type="submit" value="Register" />
+                  </form>                                       
+    </div>
+{% endblock %}

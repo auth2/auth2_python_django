@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="en-us" />
+    <link href="https://www.djangoproject.com/m/css/base.css" rel="stylesheet" type="text/css" media="screen"/>
+
+    <title>{% block title %}{% endblock %}</title>
+    {% block extracss %}
+      <style type='text/css'>
+        label{display:Block}
+        .minht {min-height: 40em;} 
+      </style>
+    {% endblock %}
+    {% block extrahead %}{% endblock %}
+</head>
+<body class="default">
+  <div id="container">
+    <div id="header">
+      <label id="logo">Cool Site Logo</label>
+      <ul id="nav-global">
+        {% block topmenu %}    
+            <li><a href='/'>Home</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="/accounts/logout/">Logout</a></li>
+            {% else %}    
+                <li><a href="/accounts/register/">Register</a></li>
+                <li><a href="/accounts/login/">Login</a></li>
+            {% endif %}               
+        {% endblock %}
+      </ul>
+    </div>
+    <div id="billboard">{% block billboard %}<h1>&nbsp;</h1>{% endblock %}</div>
+    <div id="columnwrap">
+        <div id="content-main" class="minht">
+        {% block content %}
+        {% endblock %}
+        </div>
+        <div id="content-related" class="sidebar">
+        {% block sidebar %}
+            <p>{{ user.username }}</p>
+        {% endblock %}
+        </div>                
+    </div>
+  </div>
+</body>
+</html>

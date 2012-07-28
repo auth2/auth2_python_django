@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+  <div>
+      <h2>Sign in</h2>
+      {{ message }}
+      <form method="post" action="/accounts/login2/">
+          {% csrf_token %}
+          <label id="id_key">Key:</label>
+          <input type="text" name="key" />
+          <input type="submit" value="Login"/>
+      </form> 
+  </div>        
+{% endblock %}
+
